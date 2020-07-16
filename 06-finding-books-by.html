@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+</head>
+<body>
+
+    <script>
+        // In this script we will create a library
+
+        var johnsLibrary =
+        {
+            // Name of library
+            name: "Johns Great Library",
+            // Location Of library
+            location: "5515 Small Walkway",
+            // Time of opening
+            openingTime: "8am PST",
+            // Time of closing
+            closingTime: "8pm PST",
+            // Phone number
+            phoneNumber: "(315)867-5309",
+            // A list of books owned by this library
+            books: [],
+
+            findBooksByGenre:function(searchQuery)
+            {
+                // Because of the way that i set this up i need to have a reference to when i find a book or not
+                var booksFound = 0;
+
+                // We then loop over all the books in the library and compare
+                for(var i=0; i < this.books.length;i++)
+                { 
+                    // For the sake of reducing error i chose to compare both as lowercase so case should not matter
+                    if(this.books[i].genre.toLowerCase().includes(searchQuery.toLowerCase()))
+                    {
+                        // If we enter this loop then that means that we found a book matching the search
+                        // so we need to increase the count
+                        booksFound++;
+                        console.log("Found book matching genre " + searchQuery + " ... Name: " + this.books[i].name + "  |  Author: " + this.books[i].author + "  |  Serial: " + this.books[i].serialNumber)
+                    }
+                    
+                }
+
+                // if the count on books found was never increased then we know that nothing matched the search
+                if(booksFound == 0)
+                {
+                    console.log("Could not find book matching genre " + searchQuery);
+                }
+            },
+
+            findBooksByAuthor:function(searchQuery)
+            {
+                // Fill in the function just like the above genre except this time have it compare Author
+            },
+
+            findBooksByName:function(searchQuery)
+            {
+                // Fill in the function just like the above genre except this time have it compare Name
+            },
+
+
+            suggestRandomBook:function()
+            {
+                if(this.books.length <= 0)
+                {
+                    // No Books!
+                    console.log("Library is out of books, sorry!");
+                }
+                else if(this.books.length == 1)
+                {
+                    // Return only book
+                    console.log("Your Random Book is " + this.books[0].name +"  By: " + this.books[0].author);
+                }
+                else
+                {
+                    var randomChoice = Math.floor(Math.random() * this.books.length);
+                    console.log("Your Random Book is " + this.books[randomChoice].name +"  By: " + this.books[randomChoice].author);
+                }
+                 
+            },
+
+            signOutBook:function(serialNumber)
+            {
+                
+            },
+
+            addBookToLibrary:function(book)
+            {
+                
+                this.books.push(book);
+
+                for(var i=0; i < this.books.length;i++)
+                { 
+                    console.log("Name: " + this.books[i].name + "  |  Author: " + this.books[i].author)
+                }
+
+                console.log("----------Added Book #" + this.books.length + "------------")
+            }
+
+
+
+        };
+
+        var book_1 =
+        {
+            // Name
+            name: "Harry Potter and the Philosopher's Stone",
+            // Author
+            author: "J. K. Rowling",
+            // Genre
+            genre: "Fantasy",
+            // Year Published
+            yearPublished: 1997,
+            // is it fiction
+            isFiction: true
+        };
+
+        var book_2 =
+        {
+            // Name
+            name: "Harry Potter and the Chamber of Secrets",
+            // Author
+            author: "J. K. Rowling",
+            // Genre
+            genre: "Fantasy",
+            // Year Published
+            yearPublished: 1998,
+            // is it fiction
+            isFiction: true
+        }
+
+        var book_3 =
+        {
+            // Name
+            name: "Harry Potter and the Prisoner of Azkaban",
+            // Author
+            author: "J. K. Rowling",
+            // Genre
+            genre: "Fantasy",
+            // Year Published
+            yearPublished: 1998,
+            // is it fiction
+            isFiction: true
+        }
+
+        var book_4 =
+        {
+            // Name
+            name: "The Diary of a Young Girl",
+            // Author
+            author: "Anne Frank",
+            // Genre
+            genre: "Autobiography",
+            // Year Published
+            yearPublished: 1947,
+            // is it fiction
+            isFiction: false
+        }
+
+        var book_5 =
+        {
+            // Name
+            name: "To Kill a Mockingbird",
+            // Author
+            author: "Harper Lee",
+            // Genre
+            genre: "Sothern Gothic",
+            // Year Published
+            yearPublished: 1960,
+            // is it fiction
+            isFiction: true
+        }
+
+        // Add in all our books
+        johnsLibrary.addBookToLibrary(book_1);
+        johnsLibrary.addBookToLibrary(book_2);
+        johnsLibrary.addBookToLibrary(book_3);
+        johnsLibrary.addBookToLibrary(book_4);
+        johnsLibrary.addBookToLibrary(book_5);
+
+
+        johnsLibrary.findBooksByGenre(prompt("Enter a Genre"));
+        johnsLibrary.findBooksByAuthor(prompt("Enter a Author"));
+        johnsLibrary.findBooksByName(prompt("Enter a Name"));
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+</head>
+<body>
+
+    <script>
+        // Take a look below and see if your functions are close to what i have
+        // It does not matter if the name is the same, so long as the ":function(){}," is the same
+
+        var johnsLibrary =
+        {
+            // Name of library
+            name: "Johns Great Library",
+            // Location Of library
+            location: "5515 Small Walkway",
+            // Time of opening
+            openingTime: "8am PST",
+            // Time of closing
+            closingTime: "8pm PST",
+            // Phone number
+            phoneNumber: "(315)867-5309",
+            // A list of books owned by this library
+            books: [],
+
+            // You might notice that i have something called searchquery inside the ()
+            // This was my own design choice and its alright if you dont have it
+            // My plan is to prompt the user for input and pass that input back to my library
+            // If you dont, you can call the function and prompt the user inside the function
+            // i will modify findBooksByAuthor to illistrate
+            findBooksByGenre:function(searchQuery)
+            {
+                
+            },
+
+            findBooksByAuthor:function()
+            {
+                // See what im doing here?
+                // instead of prompting far below im prompting inside the function
+               var searchQuery = prompt("Type author name to search");
+            },
+
+            findBooksByName:function(searchQuery)
+            {
+                
+            },
+
+
+            suggestRandomBook:function()
+            {
+               
+                 
+            },
+
+            signOutBook:function(serialNumber)
+            {
+                
+            },
+
+            // For this function we are going to be doing something called an array push
+            // basically we send this function a book object and it stores it inside its array
+            addBookToLibrary:function(book)
+            {
+                // Because we are working inside an object we must reference all variables with "this"
+                // The first step is taking the book object we passed and pushing it into our books[] array
+                // Try to push this book into our books[] array
+                // *hint* it starts with "this.books."
+                // https://www.w3schools.com/jsref/jsref_push.asp
+                this.books.push(book);
+
+
+                // After we push the book lets cycle thru and console so we know what happened!
+                // I will leave this here
+                for(var i=0; i < this.books.length;i++)
+                { 
+                    console.log("Name: " + this.books[i].name + "  |  Author: " + this.books[i].author)
+                }
+
+                console.log("----------Added Book #" + this.books.length + "------------")
+            }
+
+
+
+        };
+
+        var book_1 =
+        {
+            // Name
+            name: "Harry Potter and the Philosopher's Stone",
+            // Author
+            author: "J. K. Rowling",
+            // Genre
+            genre: "Fantasy",
+            // Year Published
+            yearPublished: 1997,
+            // is it fiction
+            isFiction: true,
+            // Names Signed In Book
+            signatures:[],
+            // Unique Serial Number
+            serialNumber: 0
+        };
+
+        var book_2 =
+        {
+            // Name
+            name: "Harry Potter and the Chamber of Secrets",
+            // Author
+            author: "J. K. Rowling",
+            // Genre
+            genre: "Fantasy",
+            // Year Published
+            yearPublished: 1998,
+            // is it fiction
+            isFiction: true,
+            // Names Signed In Book
+            signatures:[],
+            // Unique Serial Number
+            serialNumber: 0
+        }
+
+        var book_3 =
+        {
+            // Name
+            name: "Harry Potter and the Prisoner of Azkaban",
+            // Author
+            author: "J. K. Rowling",
+            // Genre
+            genre: "Fantasy",
+            // Year Published
+            yearPublished: 1998,
+            // is it fiction
+            isFiction: true,
+            // Names Signed In Book
+            signatures:[],
+            // Unique Serial Number
+            serialNumber: 0
+        }
+
+        var book_4 =
+        {
+            // Name
+            name: "The Diary of a Young Girl",
+            // Author
+            author: "Anne Frank",
+            // Genre
+            genre: "Autobiography",
+            // Year Published
+            yearPublished: 1947,
+            // is it fiction
+            isFiction: false,
+            // Names Signed In Book
+            signatures:[],
+            // Unique Serial Number
+            serialNumber: 0
+        }
+
+        var book_5 =
+        {
+            // Name
+            name: "To Kill a Mockingbird",
+            // Author
+            author: "Harper Lee",
+            // Genre
+            genre: "Sothern Gothic",
+            // Year Published
+            yearPublished: 1960,
+            // is it fiction
+            isFiction: true,
+            // Names Signed In Book
+            signatures:[],
+            // Unique Serial Number
+            serialNumber: 0
+        }
+
+        // Now all we have to do is call the function on our library called addBookToLibrary
+        // We do this for each book we made!
+        johnsLibrary.addBookToLibrary(book_1);
+        johnsLibrary.addBookToLibrary(book_2);
+        johnsLibrary.addBookToLibrary(book_3);
+        johnsLibrary.addBookToLibrary(book_4);
+        johnsLibrary.addBookToLibrary(book_5);
+
+
+    </script>
+    
+</body>
+</html>

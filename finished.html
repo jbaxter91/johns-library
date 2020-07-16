@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+</head>
+<body>
+
+    <script>
+        // In this script we will create a library
+
+        var johnsLibrary =
+        {
+            // Name of library
+            name: "Johns Great Library",
+            // Location Of library
+            location: "5515 Small Walkway",
+            // Time of opening
+            openingTime: "8am PST",
+            // Time of closing
+            closingTime: "8pm PST",
+            // Phone number
+            phoneNumber: "(315)867-5309",
+            // A list of books owned by this library
+            books: [],
+
+            findBooksByGenre:function(searchQuery)
+            {
+                var booksFound = 0;
+                for(var i=0; i < this.books.length;i++)
+                { 
+                    if(this.books[i].genre.toLowerCase().includes(searchQuery.toLowerCase()))
+                    {
+                        booksFound++;
+                        console.log("Found book matching genre " + searchQuery + " ... Name: " + this.books[i].name + "  |  Author: " + this.books[i].author + "  |  Serial: " + this.books[i].serialNumber)
+                    }
+                    
+                }
+
+                if(booksFound == 0)
+                {
+                    console.log("Could not find book matching genre " + searchQuery);
+                }
+            },
+
+            findBooksByAuthor:function(searchQuery)
+            {
+                var booksFound = 0;
+                for(var i=0; i < this.books.length;i++)
+                { 
+                    if(this.books[i].author.toLowerCase().includes(searchQuery.toLowerCase()))
+                    {
+                        booksFound++;
+                        console.log("Found book matching genre " + searchQuery + " ... Name: " + this.books[i].name + "  |  Author: " + this.books[i].author + "  |  Serial: " + this.books[i].serialNumber)
+                    }
+                    
+                }
+
+                if(booksFound == 0)
+                {
+                    console.log("Could not find book matching genre " + searchQuery);
+                }
+            },
+
+            findBooksByName:function(searchQuery)
+            {
+                var booksFound = 0;
+                for(var i=0; i < this.books.length;i++)
+                { 
+                    if(this.books[i].author.toLowerCase().includes(searchQuery.toLowerCase()))
+                    {
+                        booksFound++;
+                        console.log("Found book matching genre " + searchQuery + " ... Name: " + this.books[i].name + "  |  Author: " + this.books[i].author + "  |  Serial: " + this.books[i].serialNumber)
+                    }
+                    
+                }
+
+                if(booksFound == 0)
+                {
+                    console.log("Could not find book matching genre " + searchQuery);
+                }
+            },
+
+
+            suggestRandomBook:function()
+            {
+                if(this.books.length <= 0)
+                {
+                    // No Books!
+                    console.log("Library is out of books, sorry!");
+                }
+                else if(this.books.length == 1)
+                {
+                    // Return only book
+                    console.log("Your Random Book is " + this.books[0].name +"  By: " + this.books[0].author);
+                }
+                else
+                {
+                    var randomChoice = Math.floor(Math.random() * this.books.length);
+                    console.log("Your Random Book is " + this.books[randomChoice].name +"  By: " + this.books[randomChoice].author);
+                }
+                 
+            },
+
+            signOutBook:function(serialNumber)
+            {
+                for(var i=0; i < this.books.length;i++)
+                { 
+                    if(this.books[i].serialNumber == serialNumber)
+                    {
+                        console.log("Signing out Book ... Name: " + this.books[i].name + "  |  Author: " + this.books[i].author + "  |  Serial: " + this.books[i].serialNumber)
+                        
+                    }
+                    
+                }
+            },
+
+            addBookToLibrary:function(book)
+            {
+                
+                this.books.push(book);
+
+                for(var i=0; i < this.books.length;i++)
+                { 
+                    this.books[i].serialNumber = 15520 + i;
+                    console.log("Name: " + this.books[i].name + "  |  Author: " + this.books[i].author + "  |  Serial: " + this.books[i].serialNumber)
+                }
+
+                console.log("----------Added Book #" + this.books.length + "------------")
+            }
+
+
+
+        };
+
+        var book_1 =
+        {
+            // Name
+            name: "Harry Potter and the Philosopher's Stone",
+            // Author
+            author: "J. K. Rowling",
+            // Genre
+            genre: "Fantasy",
+            // Year Published
+            yearPublished: 1997,
+            // is it fiction
+            isFiction: true,
+            // Names Signed In Book
+            signatures:[],
+            // Unique Serial Number
+            serialNumber: 0
+        };
+
+        var book_2 =
+        {
+            // Name
+            name: "Harry Potter and the Chamber of Secrets",
+            // Author
+            author: "J. K. Rowling",
+            // Genre
+            genre: "Fantasy",
+            // Year Published
+            yearPublished: 1998,
+            // is it fiction
+            isFiction: true,
+            // Names Signed In Book
+            signatures:[],
+            // Unique Serial Number
+            serialNumber: 0
+        }
+
+        var book_3 =
+        {
+            // Name
+            name: "Harry Potter and the Prisoner of Azkaban",
+            // Author
+            author: "J. K. Rowling",
+            // Genre
+            genre: "Fantasy",
+            // Year Published
+            yearPublished: 1998,
+            // is it fiction
+            isFiction: true,
+            // Names Signed In Book
+            signatures:[],
+            // Unique Serial Number
+            serialNumber: 0
+        }
+
+        var book_4 =
+        {
+            // Name
+            name: "The Diary of a Young Girl",
+            // Author
+            author: "Anne Frank",
+            // Genre
+            genre: "Autobiography",
+            // Year Published
+            yearPublished: 1947,
+            // is it fiction
+            isFiction: false,
+            // Names Signed In Book
+            signatures:[],
+            // Unique Serial Number
+            serialNumber: 0
+        }
+
+        var book_5 =
+        {
+            // Name
+            name: "To Kill a Mockingbird",
+            // Author
+            author: "Harper Lee",
+            // Genre
+            genre: "Sothern Gothic",
+            // Year Published
+            yearPublished: 1960,
+            // is it fiction
+            isFiction: true,
+            // Names Signed In Book
+            signatures:[],
+            // Unique Serial Number
+            serialNumber: 0
+        }
+
+        // Add in all our books
+        johnsLibrary.addBookToLibrary(book_1);
+        johnsLibrary.addBookToLibrary(book_2);
+        johnsLibrary.addBookToLibrary(book_3);
+        johnsLibrary.addBookToLibrary(book_4);
+        johnsLibrary.addBookToLibrary(book_5);
+
+        johnsLibrary.findBooksByGenre(prompt("Enter a Genre"));
+        johnsLibrary.findBooksByAuthor(prompt("Enter a Author"));
+        johnsLibrary.findBooksByAuthor(prompt("Enter a Name"));
+
+        
+        johnsLibrary.signOutBook(prompt("Serial number"));
+
+
+    </script>
+    
+</body>
+</html>
